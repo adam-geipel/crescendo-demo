@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.ageipel.crescendo.demo.boot.YelpConfigurationProperties

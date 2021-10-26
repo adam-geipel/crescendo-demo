@@ -1,0 +1,24 @@
+openapi:
+  yelpReviewDemo:
+    base-path: /
+
+server:
+  servlet:
+    contextPath: /
+
+management:
+  server:
+    port: 8080
+  endpoints:
+    web:
+      exposure:
+        include:
+          - env
+          - beans
+          - health
+
+yelp:
+  authorization:
+    apiKey: 
+    clientId:
+    baseUrl: https://api.yelp.com/v3

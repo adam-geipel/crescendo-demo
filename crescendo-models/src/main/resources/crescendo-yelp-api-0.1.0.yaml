@@ -1,0 +1,57 @@
+openapi: "3.0.0"
+info:
+  description: A demo yelp review API
+  version: "1.0.0"
+  title: "Yelp Review Demo"
+  contact:
+    email: "adam.geipel@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+servers:
+  - url: /
+
+paths:
+  /reviews:
+    parameters:
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+    get:
+      summary: gets a list of reviews from Yelp using Yelp API
+      operationId: getReviews
+      tags:
+        - reviews
+      responses:
+        200:
+          description: A list of Yelp reviews
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Review'
+
+
+components:
+  schemas:
+    Review:
+      required:
+        - user
+        - rating
+      type: object
+      properties:
+        user:
+          description: the reviewing user's name
+          type: string
+        rating:
+          description: the user's star rating
+          type: number
+          format: double
+        feedback:
+          description: written feedback on  the review
+          type: string
+
